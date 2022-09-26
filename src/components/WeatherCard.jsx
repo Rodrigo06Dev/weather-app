@@ -9,7 +9,7 @@ import nigth from '../assets/nigth.mp4'
 import fewClouds from '../assets/fewClouds.mp4'
 import fewCloudsNigth from '../assets/fewClouds_nigth.mp4'
 import showerRain from '../assets/showerRain.mp4'
-import thunderStorm from '../assets/thunderStorm.mp4'
+import thunderStorm from '../assets/thunderstorm.mp4'
 import snow from '../assets/snow.mp4'
 import mist from '../assets/niebla.mp4'
 
