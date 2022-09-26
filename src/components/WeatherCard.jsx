@@ -12,6 +12,7 @@ import showerRain from '../assets/showerRain.mp4'
 import thunderStorm from '../assets/thunderstorm.mp4'
 import snow from '../assets/snow.mp4'
 import mist from '../assets/niebla.mp4'
+import other from '../assets/other.mp4'
 
 const WeatherCards = ({weather, temperature}) => {
   
@@ -33,10 +34,10 @@ const WeatherCards = ({weather, temperature}) => {
     <article className='card'>
         <video className='App__bgvideo' autoPlay loop muted> 
         <source src={
-          description === 'clear sky' && (hora > 7) && (hora < 17) ?
+          description === 'Clear' && (hora > 7) && (hora < 17) ?
           cleanSky
           :
-          description === 'clear sky' && (hora < 7 || hora > 17) ?
+          description === 'Clear' && (hora < 7 || hora > 17) ?
           nigth
           :
           (description === 'Clouds') && (hora > 7) && (hora < 17) ?
@@ -54,7 +55,9 @@ const WeatherCards = ({weather, temperature}) => {
           description === 'Mist' ?
           mist
           :
-          snow        
+          description === 'Snow' ?
+          snow:
+          other       
           } alt='video/mp4'/>
         </video>
         <h1 className='card__title'>Weater App</h1>
