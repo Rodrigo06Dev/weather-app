@@ -6,7 +6,7 @@ import { BsArrowsAngleContract } from 'react-icons/bs';
 //----------------importacion de los videos para back Ground---------------
 import cleanSky from '../assets/cleanSky.mp4'
 import nigth from '../assets/nigth.mp4'
-import fewClouds from '../assets/fewClouds.mp4'
+import fewClouds from '../assets/fewClouds2.mp4'
 import fewCloudsNigth from '../assets/fewClouds_nigth.mp4'
 import showerRain from '../assets/showerRain.mp4'
 import thunderStorm from '../assets/thunderstorm.mp4'
@@ -26,7 +26,7 @@ const WeatherCards = ({weather, temperature}) => {
   const hora = fecha.getHours();
   console.log(hora);
 
-
+console.log(description);
 
 
 
@@ -34,16 +34,16 @@ const WeatherCards = ({weather, temperature}) => {
     <article className='card'>
         <video className='App__bgvideo' autoPlay loop muted> 
         <source src={
-          description === 'Clear' && (hora > 7) && (hora < 17) ?
+          description == 'Clear' && (hora > 7) && (hora <= 17) ?
           cleanSky
           :
-          description === 'Clear' && (hora < 7 || hora > 17) ?
+          description == 'Clear' && (hora < 7 || hora > 17) ?
           nigth
           :
-          (description === 'Clouds') && (hora > 7) && (hora < 17) ?
+          (description == 'Clouds') && (hora > 7) && (hora <= 17) ?
           fewClouds
           :
-          (description === 'Clouds') && (hora < 7 || hora > 17)  ?
+          (description == 'Clouds') && (hora < 7 || hora > 17)  ?
           fewCloudsNigth
           :
           description === 'Rain'?
@@ -56,7 +56,8 @@ const WeatherCards = ({weather, temperature}) => {
           mist
           :
           description === 'Snow' ?
-          snow:
+          snow
+          :
           other       
           } alt='video/mp4'/>
         </video>
