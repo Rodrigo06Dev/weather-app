@@ -23,10 +23,9 @@ const WeatherCards = ({weather, temperature}) => {
  
 
   const fecha = new Date(); 
-  const hora = fecha.getHours();
-  console.log(hora);
+  const hora = 15
+  fecha.getHours();
 
-console.log(description);
 
 
 
