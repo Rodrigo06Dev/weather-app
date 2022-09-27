@@ -15,7 +15,7 @@ const WeatherCards = ({ weather, temperature, temperMin, temperMax }) => {
     <article className='card'>
       <Video description={weather?.weather[0].main} />
 
-      <h1 className='card__title'>Weater App</h1>
+      <h1 className='card__title'>Weather App</h1>
       <h2 className='card__subtitle'>{`${weather?.name}, ${weather?.sys.country}`}</h2>      
       <section className='card__first-section'>
         <h2 className='first-section__tempMin'><span>Min</span>{isCelsius ? `${temperMin?.celMin} °C` : `${temperMin?.farMin} °f`}</h2>
