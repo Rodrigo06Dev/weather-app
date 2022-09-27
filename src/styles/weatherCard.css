@@ -1,69 +1,115 @@
 .card{
     width: 100%;
-    max-width: 400px;
-    background-color:#576F7270;
-    border-radius: 4em 1em 4em 1em;
+    max-width: 600px;
+    background-color:#ffffff60;
+    border-radius: 3em;
     padding: 1em;
     color: #fff;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(4,1fr);
     margin: 0 1em;
+    box-shadow: 1px 1px 19px 4px rgb(36, 33, 33);
 }
 
 .card__title{
-    grid-column:  span 2 ;
+    grid-column:  span 4 ;
     text-align: center;
-    font-size: 35px;
+    font-size: 45px;
     text-align: center;
+    color: #042329;
 }
 
 .card__subtitle{
-    grid-column: span 2;
+    grid-column: span 4;
     text-align: center;
     font-size: 20px;
+    color: rgb(36, 33, 33);
+}
+
+.card__first-section{
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.first-section__tempMin{
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(36, 33, 33);
+}
+
+.card__icon{
+    grid-column: 2/4;
+    margin: auto;
+}
+
+.first-section__tempMax{
+    grid-column: 4/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(36, 33, 33);;
 }
 
 .card__second-section{
+    grid-column: span 4;
     display: flex;
+    margin: auto;
     flex-direction: column;
     justify-content: center;
     gap: 1em;
     padding-top: 1em;
 }
+.second__title{
+    text-align: center;
+    font-size: 25px;
+    color: #042329;
+}
 .second__list{
     display: grid;
-    gap: 7px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5em;
 }
 .second__item{
-    color: #fffa;
-    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(36, 33, 33);
+    font-size: 20px;
+    font-weight: bold;
 }
 .second__span{
-    color: #2bcfec;
+    color: #042329;
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 
 .card__temperature{
-    grid-column: span 2;
+    grid-column: span 4;
     text-align: center;
     margin: 1.5em;
+    color: rgb(36, 33, 33);
 }
 .card__btn{
-    grid-column: span 2;
+    grid-column: span 4;
     width: 50%;
     margin: 0 auto;
     padding: 10px 0;
     border-radius: 2em ;
     border: none;
-    background-color: #31e0c980;
+    background-color: #24212160;
     cursor: pointer;
 
     font-size: 18px;
     font-weight: bold;
-    color: gray;
+    color: rgb(41, 35, 35);
     transition: .8s transform, .8s border-radius;
-    color: #fff;
+
 }
 .card__btn:hover{
     transform: scale(1.2);

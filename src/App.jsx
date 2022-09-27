@@ -10,6 +10,8 @@ function App() {
   const [coords, setCoords] = useState()
   const [weather, setWeather] = useState()
   const [temperture, setTemperature] = useState()
+  const [temperMin, setTemperMin] = useState()
+  const [temperMax, setTemperMax] = useState()
   
 
   useEffect(() => {
@@ -35,7 +37,13 @@ function App() {
     .then(res => {        
         const celsius = (res.data.main.temp - 273.15).toFixed(0)
         const farenheit = (celsius * 9 /5 + 32).toFixed(0)
+        const celMin = (res.data.main.temp_min - 273.15).toFixed(0)
+        const celMax = (res.data.main.temp_max - 273.15).toFixed(0)
+        const farMin = (celMin * 9 /5 + 32).toFixed(0)
+        const farMax = (celMax * 9 /5 + 32).toFixed(0)
         setTemperature({celsius, farenheit})
+        setTemperMin({celMin, farMin})
+        setTemperMax({celMax, farMax})
         setWeather(res.data)
       
       })        
@@ -47,7 +55,11 @@ function App() {
   <div className="App">
     {
       weather ?
-      <WeatherCard weather={weather} temperature={temperture}/>
+      <WeatherCard 
+        weather={weather} 
+        temperature={temperture} 
+        temperMin = {temperMin} 
+        temperMax = {temperMax}/>
       :
       <Loading />
     }

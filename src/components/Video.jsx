@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 
 import cleanSky from '../assets/cleanSky.mp4'
 import nigth from '../assets/nigth.mp4'
@@ -17,41 +17,44 @@ import other from '../assets/other.mp4'
 const Video = ({description}) => {
     const fecha = new Date(); 
     const hora = fecha.getHours();
-    const [backGround, setBackGround] = useState()
     
-    useEffect(() => {
-        description == 'Clear' && (hora > 7) && (hora <= 17) ?
-        setBackGround(cleanSky)
-        :
-        description == 'Clear' && (hora < 7 || hora > 17) ?
-        setBackGround(nigth)
-        :
-        (description == 'Clouds') && (hora > 7) && (hora <= 17) ?
-        setBackGround(fewClouds)
-        :
-        (description == 'Clouds') && (hora < 7 || hora > 17)  ?
-        setBackGround(fewCloudsNigth)
-        :
-        description === 'Rain'?
-        setBackGround(showerRain)
-        :
-        description === 'Thunderstorm' ?
-        setBackGround(thunderStorm)
-        :
-        description === 'Mist' ?
-        setBackGround(mist)
-        :
-        description === 'Snow' ?
-        setBackGround(snow)
-        :
-        setBackGround(other)
-    }, [backGround])
-console.log(backGround);
-  return (
+    
+    const handlebackGround = () => {
+        let backGround = ''
+            description == 'Clear' && (hora > 7) && (hora <= 17) ?
+            backGround = cleanSky
+            :
+            description == 'Clear' && (hora < 7 || hora > 17) ?
+            backGround = nigth
+            :
+            (description == 'Clouds') && (hora > 7) && (hora <= 17) ?
+            backGround = fewClouds
+            :
+            (description == 'Clouds') && (hora < 7 || hora > 17)  ?
+            backGround = fewCloudsNigth
+            :
+            description === 'Rain'?
+            backGround = showerRain
+            :
+            description === 'Thunderstorm' ?
+            backGround = thunderStorm
+            :
+            description === 'Mist' ?
+            backGround = mist
+            :
+            description === 'Snow' ?
+            backGround = snow
+            :
+            backGround = other
+            console.log(`dentro de la funcion ${backGround}`);
+        return backGround
+    }
+    
+    return (
     <video className='App__bgvideo' autoPlay loop muted> 
-        <source src={backGround} alt='video/mp4'/>
+        <source src={handlebackGround()} alt='video/mp4'/>
     </video>
-  )
+    )
 }
 
 export default Video

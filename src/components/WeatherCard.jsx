@@ -5,27 +5,26 @@ import { BsFillCloudsFill } from 'react-icons/bs';
 import { BsArrowsAngleContract } from 'react-icons/bs';
 import Video from './Video';
 
-const WeatherCards = ({ weather, temperature }) => {
+const WeatherCards = ({ weather, temperature, temperMin, temperMax }) => {
 
   const [isCelsius, setIsCelsius] = useState(true)
   const changeTemperature = () => setIsCelsius(!isCelsius)
-  const description = (weather?.weather[0].main)
   console.log(weather);
 
   return (
     <article className='card'>
-      <Video description={description} />
+      <Video description={weather?.weather[0].main} />
 
       <h1 className='card__title'>Weater App</h1>
-      <h2 className='card__subtitle'>{`${weather?.name}, ${weather?.sys.country}`}</h2>
-
+      <h2 className='card__subtitle'>{`${weather?.name}, ${weather?.sys.country}`}</h2>      
       <section className='card__first-section'>
+        <h2 className='first-section__tempMin'><span>Min</span>{isCelsius ? `${temperMin?.celMin} °C` : `${temperMin?.farMin} °f`}</h2>
         <img className='card__icon' src={weather && `http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`} alt="" />
-
+        <h2 className='first-section__tempMax'><span>Max</span>{isCelsius ? `${temperMax?.celMax} °C` : `${temperMax?.farMax} °f`}</h2>
       </section>
 
       <section className='card__second-section'>
-        <h3 className='second__title'>{weather?.weather[0].description}</h3>
+        <h3 className='second__title'>{`${weather?.weather[0].description}.`.toUpperCase()}</h3>
         <ul className='second__list'>
           <li className='second__item'><span className='second__span'><BiWind /> Wind Speed</span> {weather?.wind.speed} m/s</li>
           <li className='second__item'><span className='second__span'><BsFillCloudsFill /> Clouds</span> {weather?.clouds.all}%</li>
