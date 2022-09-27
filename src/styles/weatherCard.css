@@ -7,7 +7,7 @@
     color: #fff;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    margin: 0 1em;
+    margin: 0 1em 1em 1em;
     box-shadow: 1px 1px 19px 4px rgb(36, 33, 33);
 }
 
